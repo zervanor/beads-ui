@@ -15,7 +15,14 @@ describe('list adapters for subscription types', () => {
   test('mapSubscriptionToBdArgs returns args for all-issues', () => {
     const args = mapSubscriptionToBdArgs({ type: 'all-issues' });
     // `--limit 0` = unlimited; without it bd list truncates at its default 50
-    expect(args).toEqual(['list', '--json', '--tree=false', '--limit', '0']);
+    expect(args).toEqual([
+      'list',
+      '--all',
+      '--json',
+      '--tree=false',
+      '--limit',
+      '0'
+    ]);
   });
 
   test('mapSubscriptionToBdArgs returns args for epics', () => {
@@ -138,7 +145,7 @@ describe('list adapters for subscription types', () => {
     );
 
     expect(runBdJson).toHaveBeenCalledWith(
-      ['list', '--json', '--tree=false', '--limit', '0'],
+      ['list', '--all', '--json', '--tree=false', '--limit', '0'],
       { cwd: '/workspace', priority: 'background' }
     );
   });

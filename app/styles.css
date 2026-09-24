@@ -1349,6 +1349,98 @@ input.inline-edit:focus {
   background: color-mix(in srgb, var(--control-bg) 55%, transparent);
 }
 
+/* Hierarchy view styles */
+.hierarchy-root {
+  margin: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--panel-bg);
+}
+.hierarchy-root__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-7);
+  border-bottom: 1px solid var(--border);
+
+  h1 {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+.hierarchy-tree,
+.hierarchy-tree ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hierarchy-tree ul {
+  margin-left: var(--space-8);
+  padding-left: var(--space-6);
+  border-left: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+}
+.hierarchy-node__row {
+  display: flex;
+  align-items: stretch;
+  min-height: 40px;
+}
+.hierarchy-node__toggle,
+.hierarchy-node__spacer {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+}
+.hierarchy-node__toggle {
+  border: 0;
+  border-radius: 0;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--fg);
+    background: color-mix(in srgb, var(--control-bg) 72%, transparent);
+  }
+}
+.hierarchy-node__issue {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  flex: 1;
+  padding: var(--space-4) var(--space-6);
+  border: 0;
+  border-radius: 0;
+  color: var(--fg);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background: color-mix(in srgb, var(--control-bg) 66%, transparent);
+  }
+}
+.hierarchy-node__id {
+  flex: 0 0 88px;
+  color: var(--muted);
+}
+.hierarchy-node__title {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hierarchy-node__issue .type-badge,
+.hierarchy-node__issue .status-badge,
+.hierarchy-node__issue .priority-badge {
+  flex: 0 0 auto;
+}
+
 /* Board view styles */
 .board-root {
   display: grid;

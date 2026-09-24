@@ -14,8 +14,10 @@ export function mapSubscriptionToBdArgs(spec) {
   const t = String(spec.type);
   switch (t) {
     case 'all-issues': {
+      // beads-ui-tbt: --all retains closed ancestors required by hierarchy
+      // views and by client-side multi-status filtering.
       // `--limit 0` = unlimited. Without it, `bd list` caps at its default 50.
-      return ['list', '--json', '--tree=false', '--limit', '0'];
+      return ['list', '--all', '--json', '--tree=false', '--limit', '0'];
     }
     case 'epics': {
       return ['epic', 'status', '--json'];

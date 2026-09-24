@@ -42,4 +42,24 @@ describe('initial view sync on reload (#/epics)', () => {
     expect(issuesRoot.hidden).toBe(true);
     expect(epicsRoot.hidden).toBe(false);
   });
+
+  test('shows Hierarchy view when hash is #/hierarchy', async () => {
+    window.location.hash = '#/hierarchy';
+    document.body.innerHTML = '<main id="app"></main>';
+    const root = /** @type {HTMLElement} */ (document.getElementById('app'));
+
+    bootstrap(root);
+
+    await Promise.resolve();
+
+    const issuesRoot = /** @type {HTMLElement} */ (
+      document.getElementById('issues-root')
+    );
+    const hierarchyRoot = /** @type {HTMLElement} */ (
+      document.getElementById('hierarchy-root')
+    );
+
+    expect(issuesRoot.hidden).toBe(true);
+    expect(hierarchyRoot.hidden).toBe(false);
+  });
 });
